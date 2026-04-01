@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block tite %} traiteurs {% endblock %}
+{% block content %}
+<!-- section de la banière -->
+    <main class="bg-color">
+        <section class="banier">
+            <div class="description">
+                <h1>Nos Traiteurs</h1>
+                <p>Découvrez nos traiteurs professionnels pour vos événements, mariages, baptêmes et réceptions.</p>
+            </div>
+        </section>
+
+        <!-- section carte traiteur -->
+        <section class="section-experience">
+            <div class="menu">
+                <h2>Filtres</h2>
+                <div class="filtrage">
+                    <div class="specialite">
+                        <label>Spécialité</label>
+                        <select>
+                            <option>Touls les specialité</option>
+                        </select>
+                    </div>
+                    <div class="status">
+                        <label>Status</label>
+                        <select>
+                            <option>Touls les traiteurs</option>
+                        </select>
+                    </div>
+                    <div class="bouton">
+                        <button class="btn-left"><i class="fa-solid fa-filter"></i> Filtrer</button>
+                        <button class="btn-right"><i class="fa-solid fa-arrows-rotate"></i> Réinitialiser</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carte-traiteur">
+                <a href="{% url 'ajouter_traiteur' %}" class="btn-ajout">Ajouter un traiteur</a>
+                {% for traiteur in traiteurs %}
+                    <div class="carte">
+                        <div class="carte-image">
+                            <div class="badge-verifie">
+                                <i class="fa-solid fa-circle-check"></i> Vérifié
+                            </div>
+                            {% if traiteur.image %}
+                                <img src="{{ traiteur.image.url }}" alt="{{ traiteur.nomcomplet }}">
+                            {% else %}
+                                <img src="{% static 'images/default.jpg' %}" alt="Image par défaut">
+                            {% endif %}
+                        </div>
+                        <div class="carte-text">
+                            <div class="entete">
+                                <p><span><i class="fa-solid fa-circle"></i></span> 1979 ans d'expérience</p>
+                                <p><span class="jaune"><i class="fa fa-star"></i></span> <strong>0.0</strong></p>
+                            </div>
+                            <p>{{traiteur.nomcomplet}}</p>
+                            <p class="bold">Spécialités :</p>
+                            <p class="pill"><span> {{traiteur.specialites}} </span> </p>
+                            <div class="profil">
+                                <p><span><i class="fa fa-phone"></i></span> {{traiteur.telephone}}</p>
+                                <a href="{% url 'detail_traiteur' traiteur.id %}">Voir le profil</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- section banier traiteur -->
+        <section class="banner2 banner-traiteur">
+            <div class="message">
+                <h2>Vous êtes traiteur ?</h2>
+                <p>Rejoignez notre réseau et développez votre activité événementielle !</p>
+                <a href="inscription-traiteur.html">Devenir traiteur</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

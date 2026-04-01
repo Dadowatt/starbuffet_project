@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} AJouter un traiteur {% endblock title %}
+{% block content %}
+ <!-- section de la banière -->
+  <section class="banier">
+    <div class="description-traiteur">
+      <h1>Devenir Traiteur</h1>
+      <p>Rejoignez notre plateforme et développez votre activité de traiteur</p>
+    </div>
+  </section>
+
+  
+   <main class="bg-color">
+    <!-- section formulaire -->
+  <section class="wrapper">
+    <form class="form-traiteur" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="block">
+        <h2>Informations de base</h2>
+        <div class="grid-1">
+          <div class="form-group">
+            <label>Nom complet</label>
+            {{ form.nomcomplet }}
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            {{form.email}}
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Informations professionnelles -->
+      <div class="block">
+        <h2>Informations professionnelles</h2>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Spécialités</label>
+            {{form.specialites}}
+          </div>
+
+          <div class="form-group">
+            <label>Années d'expérience</label>
+            {{form.annees_experience}}
+          </div>
+        
+
+        <div class="form-group">
+          <label>Description</label>
+          {{form.description}}
+        </div>
+        </div>
+      </div>
+
+      <!-- Informations de contact -->
+      <div class="block">
+        <h2>Informations de contact</h2>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Téléphone</label>
+            {{form.telephone}}
+          </div>
+
+          <div class="form-group">
+            <label>Adresse</label>
+            {{form.adresse}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="block">
+        <h2>Photo de profil</h2>
+        <p>photo</p>
+        <div class="upload">
+          {{form.image}}
+          <label for="id_image" class="btn">choisir un fichier</label>
+          <p>Formats acceptés : JPG, JPEG, PNG. Taille maximale : 10MB</p>
+        </div>
+      </div>
+      <button type="submit" class="btn">Ajouter</button>
+    </form>
+  </section>
+
+   </main>
+{% endblock %}

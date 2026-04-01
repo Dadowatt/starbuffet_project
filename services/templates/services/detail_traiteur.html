@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Detail traiteur {% endblock %}
+{% block content %}
+
+     <main class="parent-grid">
+        <section class="grid-banner">
+            <img src="{{ traiteur.image.url }}" class="bg-image">
+            <div class="overlay">
+                <p><span class="etoile"><i class="fa-solid fa-star"></i></span> 0.0/5</p>
+                <p><span class="check"><i class="fa-solid fa-circle-check"></i></span> Vérifié</p>
+            </div>
+        </section>
+
+        <section class="grid-items-left">
+            <div class="bloc-card">
+                <h4>À propos</h4>
+                <p>{{traiteur.nomcomplet}}</p>
+            </div>
+            <div class="bloc-card">
+                <h4>Spécialités :</h4>
+                <p><span class="badge">Française</span></p>
+            </div>
+            <div class="bloc-card">
+                <h4>Services proposés</h4>
+                <div class="liste">
+                    <ul>
+                        <li><span><i class="fa-solid fa-check"></i></span> Mariage</li>
+                        <li><span><i class="fa-solid fa-check"></i></span> Cocktails</li>
+                    </ul>
+
+                    <ul>
+                        <li><span><i class="fa-solid fa-check"></i></span> Anniversaire</li>
+                        <li><span><i class="fa-solid fa-check"></i></span> Cuisine sur mesure</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-items-right">
+            <div class="bloc-card">
+                <h4>Contact</h4>
+                <ul class="cordonnee">
+                    <li><span><i class="fa-solid fa-location-dot"></i></span>{{traiteur.adresse}}</li>
+                    <li><span><i class="fa-solid fa-phone"></i></span>{{traiteur.telephone}}</li>
+                    <li><span><i class="fa-solid fa-envelope"></i></span>{{traiteur.email}}</li>
+                </ul>
+            </div>
+            <div class="bloc-card">
+                <h4>Expérience</h4>
+                <p><span><i class="fa-solid fa-calendar"></i></span> {{traiteur.annees_experience}} ans d'expérience</p>
+            </div>
+            <div class="bloc-card">
+                <h4>Langues parlées</h4>
+                <div class="langues">
+                    <p>Français</p>
+                    <p>Italien</p>
+                    <p>Arabe</p>
+                </div>
+            </div>
+            <div class="bloc-card">
+                <button class="btn-contact"><span class="tel"><i class="fa-solid fa-phone"></i></span>Contacter</button>
+            </div>
+        </section>
+    </main>
+{% endblock %}

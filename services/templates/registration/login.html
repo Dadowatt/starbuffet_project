@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Connexion {% endblock %}
+{% block content %}
+
+<div class="erreur">
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+</div>
+
+<form method="POST" class="form-connexion">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+        <h2>Connexion</h2>
+        <label>Nom d'utilisateur</label>
+        <input type="text" name="username" required placeholder="Entrez votre nom d'utilisateur">
+        <label>Mot de passe</label>
+        <input type="password" name="password" required placeholder="Entrez votre mot de passe">
+        <div class="souvenir">
+            <div class="checked">
+                <div class="group">
+                    <input type="checkbox"> <label>Se souvenir de moi</label>
+                </div>
+                <p class="orange">mot de passe oublié ?</p>
+            </div>
+            <p class="orange">Pas encore de compte ? Inscrivez-vous</p>
+        </div>
+        <button type="submit">Se connecter</button>
+        
+    </form>
+{% endblock %}
