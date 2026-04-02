@@ -5,7 +5,11 @@
 
      <main class="parent-grid">
         <section class="grid-banner">
+            {% if traiteur.image %}
             <img src="{{ traiteur.image.url }}" class="bg-image">
+            {% else %}
+            <img src="/static/images/default.jpg" class="bg-image">
+            {% endif %}
             <div class="overlay">
                 <p><span class="etoile"><i class="fa-solid fa-star"></i></span> 0.0/5</p>
                 <p><span class="check"><i class="fa-solid fa-circle-check"></i></span> Vérifié</p>
