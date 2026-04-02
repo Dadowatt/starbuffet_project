@@ -40,9 +40,14 @@
                 {% for traiteur in traiteurs %}
                     <div class="carte">
                         <div class="carte-image">
-                            <div class="badge-verifie">
+                            {% if traiteur.est_actif %}
+                                <div class="badge-verifie">
                                 <i class="fa-solid fa-circle-check"></i> Vérifié
                             </div>
+                            {% else %}
+                                <div class="badge-attente">En attente</div>
+                            {% endif %}
+                            
                             {% if traiteur.image %}
                                 <img src="{{ traiteur.image.url }}" alt="{{ traiteur.nomcomplet }}">
                             {% else %}
