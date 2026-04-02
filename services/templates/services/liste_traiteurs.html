@@ -36,7 +36,16 @@
             </div>
 
             <div class="carte-traiteur">
-                <a href="{% url 'ajouter_traiteur' %}" class="btn-ajout">Ajouter un traiteur</a>
+                <div class="messages">
+                    <a href="{% url 'ajouter_traiteur' %}" class="btn-ajout">Ajouter un traiteur</a>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="msg-succes">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
                 {% for traiteur in traiteurs %}
                     <div class="carte">
                         <div class="carte-image">

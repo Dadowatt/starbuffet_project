@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from .models import Traiteur
 from .forms import TraiteurForm
 
@@ -15,12 +16,14 @@ def detail_traiteur(request, id):
     traiteur = get_object_or_404(Traiteur, id=id)
     return render(request, 'services/detail_traiteur.html', {'traiteur': traiteur})
 
+
 @login_required(login_url='login')
 def ajouter_traiteur(request):
     if request.method == 'POST':
         form = TraiteurForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, "Traiteur ajouté avec succès !")
             return redirect('liste_traiteurs')
     else:
         form = TraiteurForm()

@@ -55,8 +55,17 @@ header .menu-deroulant{
     gap: 8px;
 }
 
-.inscription a, .btn-ajout{
+.inscription a{
     padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #e65100;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-ajout{
+    padding: 0 20px;
+    height: 40px;
     border-radius: 5px;
     border: none;
     background-color: #e65100;
@@ -545,6 +554,18 @@ header .menu-deroulant{
     border-radius: 20px;
     z-index: 2;
 }
+.messages{
+    display:  flex;
+}
+.msg-succes{
+    background-color: #e8f7ec;
+    color: #1b7a3d;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    margin-left: 5%;
+}
 .carte{
     display: flex;
     height: 170px;
@@ -996,12 +1017,11 @@ body{
     margin-top: 5px;
 }
 
-
 .form-connexion{
     background-color: #fff;
     width: 400px;
-    height: 400px;
-    padding: 10px;
+    height: 350px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1039,6 +1059,7 @@ body{
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 5%;
 }
 .form-connexion button:hover{
     background-color: #f97316;
