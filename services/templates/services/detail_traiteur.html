@@ -19,7 +19,11 @@
             </div>
             <div class="bloc-card">
                 <h4>Spécialités :</h4>
-                <p><span class="badge">Française</span></p>
+                <div class="specialite">
+                    {% for sp in specialites_list %}
+                    <span class="badge">{{sp}}</span>
+                    {% endfor %}
+                </div>
             </div>
             <div class="bloc-card">
                 <h4>Services proposés</h4>
@@ -53,9 +57,9 @@
             <div class="bloc-card">
                 <h4>Langues parlées</h4>
                 <div class="langues">
-                    <p>Français</p>
-                    <p>Italien</p>
-                    <p>Arabe</p>
+                    {% for langue in langues_list %}
+                    <span class="badge">{{ langue }}</span>
+                    {% endfor %}
                 </div>
             </div>
             <div class="bloc-card">

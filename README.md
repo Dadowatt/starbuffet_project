@@ -57,6 +57,7 @@ http://127.0.0.1:8000/admin
 * Consultation des détails d’un traiteur
 * Ajout de traiteur via formulaire
 * Upload d’image pour chaque traiteur
+* Gestion de l’état des traiteurs : affichage de la liste des traiteurs vérifiés uniquement
 
 ### Authentification
 

@@ -10,6 +10,7 @@ class Traiteur(models.Model):
     date_de_creation = models.DateTimeField(auto_now_add=True)
     telephone = models.CharField(max_length=20)
     annees_experience = models.PositiveBigIntegerField(default=0)
+    langues = models.CharField(max_length=255)
     image = models.ImageField(upload_to='traiteurs/', blank=True, null=True)
 
     def __str__(self):

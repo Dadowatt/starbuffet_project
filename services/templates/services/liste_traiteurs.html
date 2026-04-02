@@ -49,13 +49,9 @@
                 {% for traiteur in traiteurs %}
                     <div class="carte">
                         <div class="carte-image">
-                            {% if traiteur.est_actif %}
                                 <div class="badge-verifie">
                                 <i class="fa-solid fa-circle-check"></i> Vérifié
                             </div>
-                            {% else %}
-                                <div class="badge-attente">En attente</div>
-                            {% endif %}
                             
                             {% if traiteur.image %}
                                 <img src="{{ traiteur.image.url }}" alt="{{ traiteur.nomcomplet }}">
@@ -65,12 +61,16 @@
                         </div>
                         <div class="carte-text">
                             <div class="entete">
-                                <p><span><i class="fa-solid fa-circle"></i></span> 1979 ans d'expérience</p>
+                                <p><span><i class="fa-solid fa-circle"></i></span> {{traiteur.annees_experience}} ans d'expérience</p>
                                 <p><span class="jaune"><i class="fa fa-star"></i></span> <strong>0.0</strong></p>
                             </div>
                             <p>{{traiteur.nomcomplet}}</p>
                             <p class="bold">Spécialités :</p>
-                            <p class="pill"><span> {{traiteur.specialites}} </span> </p>
+                            <p class="pill">
+                                {% for sp in traiteur.specialites_list %}
+                                <span> {{sp}} </span>
+                                {% endfor %}
+                             </p>
                             <div class="profil">
                                 <p><span><i class="fa fa-phone"></i></span> {{traiteur.telephone}}</p>
                                 <a href="{% url 'detail_traiteur' traiteur.id %}">Voir le profil</a>

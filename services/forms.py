@@ -11,7 +11,8 @@ class TraiteurForm(forms.ModelForm):
             'email',
             'telephone',
             'annees_experience',
-            'image'
+            'image',
+            'langues'
         ]
         widgets = {
             'nomcomplet': forms.TextInput(attrs={'placeholder': 'Binta Diop'}),
@@ -22,6 +23,7 @@ class TraiteurForm(forms.ModelForm):
             'telephone': forms.TextInput(attrs={'placeholder': '+221 77 123 45 67'}),
             'annees_experience': forms.NumberInput(attrs={'placeholder': '5'}),
             'image': forms.ClearableFileInput(),
+            'langues': forms.TextInput(attrs={'placeholder': 'Français, Anglais, Arabe...'}),
         }
 
 

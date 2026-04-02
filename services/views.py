@@ -9,13 +9,22 @@ def index(request):
     return render(request, 'services/index.html')
 
 def liste_traiteurs(request):
-    traiteurs = Traiteur.objects.all()
+    traiteurs = Traiteur.objects.filter(est_actif=True)
+    for t in traiteurs:
+        t.specialites_list = [sp.strip() for sp in t.specialites.split(",")]
+
     return render(request, 'services/liste_traiteurs.html', {'traiteurs': traiteurs})
 
 def detail_traiteur(request, id):
     traiteur = get_object_or_404(Traiteur, id=id)
-    return render(request, 'services/detail_traiteur.html', {'traiteur': traiteur})
-
+    langues_list = [l.strip() for l in traiteur.langues.split(",")]
+    specialites_list = [sp.strip() for sp in traiteur.specialites.split(",")]
+    return render(request, 'services/detail_traiteur.html', {
+        'traiteur': traiteur,
+        'langues_list': langues_list,
+        'specialites_list': specialites_list
+        })
+    
 
 @login_required(login_url='login')
 def ajouter_traiteur(request):
